@@ -44,3 +44,12 @@ T = data[m*d + K*d :].reshape(K, K)
 
 y_full = decode_dp(X, W, T)
 np.savetxt("result/decode_output.txt", y_full, fmt='%d')
+
+score_full = 0
+m = len(X)
+for s in range(m):
+    score_full += np.dot(W[y_full[s]-1], X[s])
+for s in range(m-1):
+    score_full += T[y_full[s]-1, y_full[s+1]-1]
+print("Maximum objective value:", score_full)
+## Maximum objective value: 200.18515048829283
