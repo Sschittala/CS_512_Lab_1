@@ -1,5 +1,6 @@
 import numpy as np
 from itertools import product
+
 def decode_dp(X, W, T):
     m = len(X)
     K = 26
