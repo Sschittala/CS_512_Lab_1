@@ -94,14 +94,14 @@ def save_solution(filename, grad_w, grad_t):
     vec = np.concatenate([grad_w.flatten(), grad_t.flatten('F')])
     np.savetxt(filename, vec)
 
-W, T = load_model("/Users/sai/CS_512_Lab_1-2/Lab_1/data/model.txt")
-words_x, words_y = load_train("/Users/sai/CS_512_Lab_1-2/Lab_1/data/train.txt")
+#2a
+W, T = load_model("/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/CS_512_Lab_1/Lab_1/data/model.txt")
+words_x, words_y = load_train("/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/CS_512_Lab_1/Lab_1/data/train.txt")
 avg_log, avg_grad_w, avg_grad_t = compute_full_gradient(words_x, words_y, W, T) 
-save_solution("result/gradient_output.txt", avg_grad_w, avg_grad_t)
-#4a
+save_solution("../result/gradient.txt", avg_grad_w, avg_grad_t)
 print("Average log p(y|X) over training set:", avg_log) # -4.140274439213334
 
-#4b
+#2b
 W_init = np.zeros((26, 128))
 T_init = np.zeros((26, 26))
 params_init = np.concatenate([W_init.flatten(), T_init.flatten('F')])
@@ -109,7 +109,7 @@ solution = fmin_tnc(func=lambda p, *args: objective_and_grad(p, *args), x0=param
 params_opt = solution[0]
 W_opt = params_opt[:26*128].reshape(26, 128)
 T_opt = params_opt[26*128:].reshape(26, 26, order='F')
-save_solution("result/optimized_model.txt", W_opt, T_opt)
+save_solution("../result/solution.txt", W_opt, T_opt)
 
 
  
