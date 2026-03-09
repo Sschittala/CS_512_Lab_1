@@ -35,22 +35,22 @@ def decode_bruteforce(X, W, T):
             best_y = y
     return np.array(best_y) + 1, best_score
 
-data = np.loadtxt("/Users/sai/CS_512_Lab_1-2/Lab_1/data/decode_input.txt")
-m = 100
-d = 128
-K = 26
-X = data[:m*d].reshape(m, d)
-W = data[m*d : m*d + K*d].reshape(K, d)
-T = data[m*d + K*d :].reshape(K, K)
+# data = np.loadtxt("/Users/sai/CS_512_Lab_1-2/Lab_1/data/decode_input.txt")
+# m = 100
+# d = 128
+# K = 26
+# X = data[:m*d].reshape(m, d)
+# W = data[m*d : m*d + K*d].reshape(K, d)
+# T = data[m*d + K*d :].reshape(K, K)
 
-y_full = decode_dp(X, W, T)
-np.savetxt("result/decode_output.txt", y_full, fmt='%d')
+# y_full = decode_dp(X, W, T)
+# np.savetxt("result/decode_output.txt", y_full, fmt='%d')
 
-score_full = 0
-m = len(X)
-for s in range(m):
-    score_full += np.dot(W[y_full[s]-1], X[s])
-for s in range(m-1):
-    score_full += T[y_full[s]-1, y_full[s+1]-1]
-print("Maximum objective value:", score_full)
-## Maximum objective value: 200.18515048829283
+# score_full = 0
+# m = len(X)
+# for s in range(m):
+#     score_full += np.dot(W[y_full[s]-1], X[s])
+# for s in range(m-1):
+#     score_full += T[y_full[s]-1, y_full[s+1]-1]
+# print("Maximum objective value:", score_full)
+# ## Maximum objective value: 200.18515048829283
