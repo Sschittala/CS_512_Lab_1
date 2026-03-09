@@ -71,7 +71,7 @@ for C in C_values:
     W_opt = params_opt[:26*128].reshape(26, 128)
     T_opt = params_opt[26*128:].reshape(26, 26, order='F')
 
-    print(f"\predicting CRF with C={C}")
+    print(f"predicting CRF with C={C}")
     # now predict and decode
     predictions = []
     for X in test_x:
