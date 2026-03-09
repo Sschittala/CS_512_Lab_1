@@ -20,16 +20,31 @@ def letter_accuracy(y_true_seq, y_pred_seq):
 
     return correct_letters / total_letters
 
+def word_accuracy(y_true_seq, y_pred_seq):
+    total_words = len(y_true_seq)
+    correct_words = 0
+
+    for y_true, y_pred in zip(y_true_seq, y_pred_seq):
+        if np.array_equal(y_true, y_pred):
+            correct_words += 1
+
+    return correct_words / total_words
+
 # load in data
 train_x, train_y = load_train("../data/train.txt")
 test_x, test_y = load_train("../data/test.txt")
+
+print("number of words:", len(test_x))
+print("length of first 10 test words:", [len(w) for w in test_x[:10]])
+print("length of first 10 training words:", [len(w) for w in train_x[:10]])
 
 print("training words:", len(train_x))
 print("test words:", len(test_x))
 
 # C-search values
-C_values = [1, 10, 100, 1000]
+C_values = [1, 10, 100, 1000, 10000]
 letter_accuracies = []
+word_accuracies = []
 
 print("starting C-search sweep for CRF...")
 for C in C_values:
@@ -56,7 +71,7 @@ for C in C_values:
     W_opt = params_opt[:26*128].reshape(26, 128)
     T_opt = params_opt[26*128:].reshape(26, 26, order='F')
 
-    print(f"\ntraining CRF with C={C}")
+    print(f"\predicting CRF with C={C}")
     # now predict and decode
     predictions = []
     for X in test_x:
@@ -66,11 +81,16 @@ for C in C_values:
         predictions.append(pred - 1)
 
     # calculate accuracy
-    acc = letter_accuracy(test_y, predictions)
-    letter_accuracies.append(acc)
+    letter_acc = letter_accuracy(test_y, predictions)
+    word_acc = word_accuracy(test_y, predictions)
 
-    print(f"letter-wise accuracy for C={C}: {acc:.4f}")
+    letter_accuracies.append(letter_acc)
+    word_accuracies.append(word_acc)
 
+    print(f"letter accuracy for C={C}: {letter_acc:.4f}")
+    print(f"word accuracy for C={C}: {word_acc:.4f}")
+
+# letter accuracies plot
 plt.figure(figsize=(6,4))
 plt.plot(C_values, letter_accuracies, marker='o')
 plt.xscale('log')
@@ -78,6 +98,19 @@ plt.xscale('log')
 plt.xlabel("Regularization Parameter C")
 plt.ylabel("Letter-wise Accuracy")
 plt.title("CRF Letter-wise Accuracy vs C")
+
+plt.grid(True, which="both", linestyle="--")
+plt.tight_layout()
+plt.show()
+
+# word accuracies plot
+plt.figure(figsize=(6,4))
+plt.plot(C_values, word_accuracies, marker='o')
+plt.xscale('log')
+
+plt.xlabel("Regularization Parameter C")
+plt.ylabel("Word-wise Accuracy")
+plt.title("CRF Word-wise Accuracy vs C")
 
 plt.grid(True, which="both", linestyle="--")
 plt.tight_layout()
