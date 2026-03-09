@@ -63,10 +63,12 @@ for C in C_values:
         func=lambda p, *args: objective_and_grad(p, *args),
         x0=params_init,
         args=(train_x, train_y, 128, 26, C),
-        messages=0
+        maxfun=250,
+        ftol=1e-3,
+        messages=5
     )
 
-    params_opt = solution[0]
+    params_opt, nfeval, rc = solution
 
     W_opt = params_opt[:26*128].reshape(26, 128)
     T_opt = params_opt[26*128:].reshape(26, 26)

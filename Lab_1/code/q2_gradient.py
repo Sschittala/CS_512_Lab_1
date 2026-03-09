@@ -59,8 +59,8 @@ def load_train(filename):
 
     for row in data:
         letter = row[1]  # column 1 = letter
-        word_id = row[3] # column 3 = word_id
-        pos = row[4]     # column 4 = letter position in word
+        word_id = int(row[3]) # column 3 = word_id
+        pos = int(row[4])     # column 4 = letter position in word
         features = row[5:].astype(float)
         
         if word_id not in groups:
@@ -124,6 +124,7 @@ def save_solution(filename, grad_w, grad_t):
     np.savetxt(filename, vec)
 
 # #2a
+'''
 W, T = load_model("../data/model.txt")
 words_x, words_y = load_train("../data/train.txt")
 avg_log, avg_grad_w, avg_grad_t = compute_full_gradient(words_x, words_y, W, T) 
@@ -134,11 +135,20 @@ print("Average log p(y|X) over training set:", avg_log) # -4.140274439213334
 W_init = np.zeros((26, 128))
 T_init = np.zeros((26, 26))
 params_init = np.concatenate([W_init.ravel(), T_init.ravel()])
-solution = fmin_tnc(func=lambda p, *args: objective_and_grad(p, *args), x0=params_init, args=(words_x, words_y), messages=0)
+solution = fmin_tnc(
+        func=lambda p, *args: objective_and_grad(p, *args),
+        x0=params_init,
+        args=(words_x, words_y),
+        maxfun=100,
+        ftol=1e-3,
+        messages=5
+)
+
 params_opt = solution[0]
 W_opt = params_opt[:26*128].reshape(26, 128)
-T_opt = params_opt[26*128:].reshape(26, 26, order='F')
+T_opt = params_opt[26*128:].reshape(26, 26)
 save_solution("../result/solution.txt", W_opt, T_opt)
+'''
 
 
  
