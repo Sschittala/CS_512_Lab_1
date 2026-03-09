@@ -44,16 +44,47 @@ def load_model(filename):
     return W, T
 
 def load_train(filename):
+    """
+    Loads data from the CRF letter-level dataset and groups letters by word.
+
+    Returns:
+        words_x: list of np.arrays, each array = (word_length, 128) features
+        words_y: list of np.arrays, each array = (word_length,) labels 0..25
+    """
+    import numpy as np
+
+    data = np.loadtxt(filename, dtype=str)
     words_x = []
     words_y = []
-    data = np.loadtxt(filename, dtype=str)
-    word_ids = np.unique(data[:, 0])
-    for wid in word_ids:
-        word_data = data[data[:, 0] == wid]
-        X = word_data[:, 5:].astype(float)
-        y = np.array([ord(ch) - ord('a') for ch in word_data[:, 1]])
-        words_x.append(X)
-        words_y.append(y)
+
+    current_word_id = None
+    X = []
+    y = []
+
+    for row in data:
+        word_id = row[3]  # column 3 = word_id
+        letter = row[1]   # column 1 = letter
+        features = row[5:].astype(float)
+
+        if current_word_id is None:
+            current_word_id = word_id
+
+        # if we encounter a new word, store the previous one
+        if word_id != current_word_id:
+            words_x.append(np.array(X))
+            words_y.append(np.array(y))
+            X = []
+            y = []
+            current_word_id = word_id
+
+        X.append(features)
+        y.append(ord(letter) - ord('a'))  # map 'a'-'z' to 0-25
+
+    # append last word
+    if X:
+        words_x.append(np.array(X))
+        words_y.append(np.array(y))
+
     return words_x, words_y
 
 def compute_full_gradient(words_x, words_y, W, T):
