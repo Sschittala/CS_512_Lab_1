@@ -55,8 +55,8 @@ for C in C_values:
     T_init = np.zeros((26, 26))
 
     params_init = np.concatenate([
-        W_init.flatten(),
-        T_init.flatten('F')
+        W_init.ravel(),
+        T_init.ravel()
     ])
 
     solution = fmin_tnc(
@@ -69,7 +69,7 @@ for C in C_values:
     params_opt = solution[0]
 
     W_opt = params_opt[:26*128].reshape(26, 128)
-    T_opt = params_opt[26*128:].reshape(26, 26, order='F')
+    T_opt = params_opt[26*128:].reshape(26, 26)
 
     print(f"predicting CRF with C={C}")
     # now predict and decode

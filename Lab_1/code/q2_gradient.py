@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.optimize import fmin_tnc
+from collections import defaultdict
 
 def logsumexp(arr, axis=None):
     max_val = np.max(arr, axis=axis, keepdims=True)
@@ -51,39 +52,30 @@ def load_train(filename):
         words_x: list of np.arrays, each array = (word_length, 128) features
         words_y: list of np.arrays, each array = (word_length,) labels 0..25
     """
-    import numpy as np
 
     data = np.loadtxt(filename, dtype=str)
-    words_x = []
-    words_y = []
-
-    current_word_id = None
-    X = []
-    y = []
+    groups = defaultdict(list)
+    word_order = []
 
     for row in data:
-        word_id = row[3]  # column 3 = word_id
-        letter = row[1]   # column 1 = letter
+        letter = row[1]  # column 1 = letter
+        word_id = row[3] # column 3 = word_id
+        pos = row[4]     # column 4 = letter position in word
         features = row[5:].astype(float)
+        
+        if word_id not in groups:
+            word_order.append(word_id)
+            
+        groups[word_id].append((pos, features, ord(letter) - ord('a')))
 
-        if current_word_id is None:
-            current_word_id = word_id
-
-        # if we encounter a new word, store the previous one
-        if word_id != current_word_id:
-            words_x.append(np.array(X))
-            words_y.append(np.array(y))
-            X = []
-            y = []
-            current_word_id = word_id
-
-        X.append(features)
-        y.append(ord(letter) - ord('a'))  # map 'a'-'z' to 0-25
-
-    # append last word
-    if X:
-        words_x.append(np.array(X))
-        words_y.append(np.array(y))
+    words_x, words_y = [], []
+    # if we encounter a new word, store the previous one
+    for wid in word_order:
+        items = sorted(groups[wid], key=lambda t: t[0])
+        X = np.array([feat for _, feat, _ in items], dtype=float)
+        y = np.array([lab for _, _, lab in items], dtype=int)
+        words_x.append(X)
+        words_y.append(y)
 
     return words_x, words_y
 
@@ -131,7 +123,6 @@ def save_solution(filename, grad_w, grad_t):
     vec = np.concatenate([grad_w.ravel(), grad_t.ravel()])
     np.savetxt(filename, vec)
 
-'''
 # #2a
 W, T = load_model("../data/model.txt")
 words_x, words_y = load_train("../data/train.txt")
@@ -148,7 +139,7 @@ params_opt = solution[0]
 W_opt = params_opt[:26*128].reshape(26, 128)
 T_opt = params_opt[26*128:].reshape(26, 26, order='F')
 save_solution("../result/solution.txt", W_opt, T_opt)
-'''
+
 
  
   
