@@ -4,9 +4,11 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.optimize import fmin_tnc
 
 from q1_decode import decode_dp
 from q2_gradient import load_train, objective_and_grad, compute_gradient
+
 
 
 # Utility function for SGD training, takes 'batch_idx' as additional input specifying
@@ -69,7 +71,7 @@ def word_error(params, test_x, test_y, d=128, K=26):
     return 1.0 - acc
 
 # Implement plain SGD without momentum
-def run_sgd(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, steps=2000, seed=0):
+def run_sgd(train_x, train_y, test_x, test_y, sample_rate, C=1000, B=32, lr=1e-3, steps=2000, seed=0):
     rng = np.random.default_rng(seed)
     d = 128
     K = 26
@@ -93,13 +95,14 @@ def run_sgd(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, steps=2000,
         history_pass.append(eff_pass)
         history_obj.append(full_objective(params, train_x, train_y, d, K, C))
         history_err.append(word_error(params, test_x, test_y, d, K))
-
-        print(
-            f"  [SGD] step={step:4} "
-            f"pass={eff_pass:.3f} "
-            f"obj={history_obj[-1]:.4f} "
-            f"test_err={history_err[-1]:.4f}"
-        )
+        
+        if step % sample_rate == 0:
+            print(
+                f"  [SGD] step={step:4} "
+                f"pass={eff_pass:.3f} "
+                f"obj={history_obj[-1]:.4f} "
+                f"test_err={history_err[-1]:.4f}"
+            )
 
     print(f"Final training objective: {history_obj[-1]:.4f}")
     print(f"Final test word error: {history_err[-1]:.4f}")
@@ -107,7 +110,7 @@ def run_sgd(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, steps=2000,
     return params, history_pass, history_obj, history_err
 
 # Implement SGD with momentum
-def run_sgd_momentum(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, steps=2000,
+def run_sgd_momentum(train_x, train_y, test_x, test_y, sample_rate, C=1000, B=32, lr=1e-3, steps=2000,
                      momentum=0.9, seed=0):
     rng = np.random.default_rng(seed)
     d = 128
@@ -137,12 +140,13 @@ def run_sgd_momentum(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, st
         history_obj.append(full_objective(params, train_x, train_y, d, K, C))
         history_err.append(word_error(params, test_x, test_y, d, K))
 
-        print(
-            f"  [Momentum] step={step:4} "
-            f"pass={eff_pass:.3f} "
-            f"obj={history_obj[-1]:.4f} "
-            f"test_err={history_err[-1]:.4f}"
-        )
+        if step % sample_rate == 0:
+            print(
+                f"  [Momentum] step={step:4} "
+                f"pass={eff_pass:.3f} "
+                f"obj={history_obj[-1]:.4f} "
+                f"test_err={history_err[-1]:.4f}"
+            )
 
 
     print(f"Final training objective: {history_obj[-1]:.4f}")
@@ -169,6 +173,13 @@ def run_lbfgs(train_x, train_y, test_x, test_y, C=1000, maxfun=300):
         history_pass.append(eval_count["n"])
         history_obj.append(full_objective(p, train_x, train_y, d, K, C))
         history_err.append(word_error(p, test_x, test_y, d, K))
+        print(
+            f"  [LBFGS] step={step:4} "
+            f"pass={eff_pass:.3f} "
+            f"obj={history_obj[-1]:.4f} "
+            f"test_err={history_err[-1]:.4f}"
+        )
+
 
     params_opt, nfeval, rc = fmin_tnc(
         func=lambda p, *args: tracked_obj(p, *args),
@@ -216,7 +227,7 @@ test_x, test_y = load_train("../data/test.txt")
 
 C = 1000 # Choose optimal C
 
-sgd_hist = run_sgd(train_x, train_y, test_x, test_y, C=C, steps=300)
-mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, C=C, momentum=0.9, steps=300)
+sgd_hist = run_sgd(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, steps=50)
+mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, momentum=0.9, steps=50)
 lbfgs_hist = run_lbfgs(train_x, train_y, test_x, test_y, C=C, maxfun=300)
 plot_histories(sgd_hist, mom_hist, lbfgs_hist)
