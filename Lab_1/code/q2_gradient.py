@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.optimize import fmin_tnc
 from collections import defaultdict
+from q1_decode import decode_dp
 
 def logsumexp(arr, axis=None):
     max_val = np.max(arr, axis=axis, keepdims=True)
@@ -123,6 +124,22 @@ def save_solution(filename, grad_w, grad_t):
     vec = np.concatenate([grad_w.ravel(), grad_t.ravel()])
     np.savetxt(filename, vec)
 
+def load_test(filename):
+    data = np.loadtxt(filename, dtype=str)
+    groups = defaultdict(list)
+    word_order = []
+    for row in data:
+        word_id = int(row[3])
+        if word_id not in groups:
+            word_order.append(word_id)
+        groups[word_id].append((int(row[4]), row[5:].astype(float)))
+    words_x = []
+    for wid in word_order:
+        items = sorted(groups[wid], key=lambda t: t[0])
+        X = np.array([feat for _, feat in items], dtype=float)
+        words_x.append(X)
+    return words_x
+
 # #2a
 '''
 W, T = load_model("../data/model.txt")
@@ -148,6 +165,12 @@ params_opt = solution[0]
 W_opt = params_opt[:26*128].reshape(26, 128)
 T_opt = params_opt[26*128:].reshape(26, 26)
 save_solution("../result/solution.txt", W_opt, T_opt)
+test_words_x = load_test("../data/test.txt")
+final_preds = []
+for x_word in test_words_x:
+    pred = decode_dp(x_word, W_opt, T_opt)
+    final_preds.extend(pred + 1)
+np.savetxt("../result/predictions.txt", final_preds, fmt='%d')
 '''
 
 
