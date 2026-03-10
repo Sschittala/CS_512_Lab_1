@@ -82,7 +82,9 @@ def run_sgd(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, steps=2000,
     n = len(train_x)
 
     # Main training loop. Run for 'steps' steps
+    print(f"\nStarting SGD training (lr={lr}, batch={B}, steps={steps})")
     for step in range(steps):
+        
         batch_idx = rng.choice(n, size=B, replace=False)
         _, grad = minibatch_obj_and_grad(params, train_x, train_y, batch_idx, d, K, C)
         params = params - lr * grad
@@ -91,6 +93,16 @@ def run_sgd(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, steps=2000,
         history_pass.append(eff_pass)
         history_obj.append(full_objective(params, train_x, train_y, d, K, C))
         history_err.append(word_error(params, test_x, test_y, d, K))
+
+        print(
+            f"  [SGD] step={step:4} "
+            f"pass={eff_pass:.3f} "
+            f"obj={history_obj[-1]:.4f} "
+            f"test_err={history_err[-1]:.4f}"
+        )
+
+    print(f"Final training objective: {history_obj[-1]:.4f}")
+    print(f"Final test word error: {history_err[-1]:.4f}")
 
     return params, history_pass, history_obj, history_err
 
@@ -110,7 +122,9 @@ def run_sgd_momentum(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, st
     n = len(train_x)
 
     # Main training loop. Run for 'steps' steps with momentum
+    print(f"\nStarting Momentum training (lr={lr}, batch={B}, momentum={momentum})")
     for step in range(steps):
+        
         batch_idx = rng.choice(n, size=B, replace=False)
         _, grad = minibatch_obj_and_grad(params, train_x, train_y, batch_idx, d, K, C)
 
@@ -122,6 +136,17 @@ def run_sgd_momentum(train_x, train_y, test_x, test_y, C=1000, B=32, lr=1e-3, st
         history_pass.append(eff_pass)
         history_obj.append(full_objective(params, train_x, train_y, d, K, C))
         history_err.append(word_error(params, test_x, test_y, d, K))
+
+        print(
+            f"  [Momentum] step={step:4} "
+            f"pass={eff_pass:.3f} "
+            f"obj={history_obj[-1]:.4f} "
+            f"test_err={history_err[-1]:.4f}"
+        )
+
+
+    print(f"Final training objective: {history_obj[-1]:.4f}")
+    print(f"Final test word error: {history_err[-1]:.4f}")
 
     return params, history_pass, history_obj, history_err
 
