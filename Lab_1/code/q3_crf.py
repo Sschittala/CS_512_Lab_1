@@ -31,6 +31,7 @@ def word_accuracy(y_true_seq, y_pred_seq):
     return correct_words / total_words
 
 # load in data
+'''
 train_x, train_y = load_train("../data/train.txt")
 test_x, test_y = load_train("../data/test.txt")
 
@@ -63,8 +64,9 @@ for C in C_values:
         func=lambda p, *args: objective_and_grad(p, *args),
         x0=params_init,
         args=(train_x, train_y, 128, 26, C),
-        maxfun=250,
-        ftol=1e-3,
+        maxfun=1000,
+        ftol=1e-8,
+        pgtol=1e-8,
         messages=5
     )
 
@@ -117,3 +119,4 @@ plt.title("CRF Word-wise Accuracy vs C")
 plt.grid(True, which="both", linestyle="--")
 plt.tight_layout()
 plt.show()
+'''

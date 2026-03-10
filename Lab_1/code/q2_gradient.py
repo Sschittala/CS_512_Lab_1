@@ -169,7 +169,8 @@ test_words_x = load_test("../data/test.txt")
 final_preds = []
 for x_word in test_words_x:
     pred = decode_dp(x_word, W_opt, T_opt)
-    final_preds.extend(pred + 1)
+    final_preds.extend(pred)
+    # final_preds.extend(pred + 1)
 np.savetxt("../result/predictions.txt", final_preds, fmt='%d')
 '''
 
