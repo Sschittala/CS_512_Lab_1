@@ -9,9 +9,12 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{subfigure}
+
 \usepackage{xcolor}
 \definecolor{b}{RGB}{70,140,220}
+
 \usepackage{pdfpages}
+\usepackage[ruled,vlined]{algorithm2e}
 %\PassOptionsToPackage{normalem}{ulem}
 %\usepackage{ulem}
 
@@ -278,7 +281,7 @@ Given these parameters (\eg\ by learning from data), the model \eqref{eq:crf} ca
 	If you are using your own dynamic programming algorithm (\ie\ not max-sum),
 	give a brief description especially the formula of recursion.
 
-	\textcolor{b}{See \textbf{code/q1\_decode.py} for implmentation and \textbf{result/decode\_output.txt} for results. Need to include "maximum objective value" here, and add comments in the q1\_decode.py file.}
+	\textcolor{b}{See \textbf{code/q1\_decode.py} for implementation and \textbf{result/decode\_output.txt} for results. Need to include "maximum objective value" here, and add comments in the q1\_decode.py file.}
 \end{itemize}
 
 %\newpage
@@ -415,8 +418,6 @@ use the $\text{SVM}^{\text{hmm}}$ package instead.
 No Matlab/Python wrapper for $\text{SVM}^{\text{hmm}}$ is available.
 So write up a script in your favorite language to call the \textbf{binary} executables and to parse the results.
 
-\textcolor{b}{The full folder for this model and its executables is under code/svm\_hmm}
-
 $\text{SVM}^{\text{hmm}}$ requires that the input data be stored in a different format.
 This conversion has been done for you, and the resulting data files are \verb#data/train_struct.txt# and \verb#data/test_struct.txt#.
 For SVM-MC, you need to write a script to create a data file that is readable by LibSVM,
@@ -424,6 +425,8 @@ and you may find it convenient to do it based on \verb#train_struct.txt# and \ve
 The meaning of the fields in each line is described in \verb#data/fields_struct.txt#.
 %Letter-wise multi-class SVM can be considered as a special case of structured SVM,
 %where each word consists of only one letter.
+
+\textcolor{b}{The full folder for the SVM-HMM model and its executables is under \textbf{code/svm\_hmm} The script \textbf{code/q3\_convert\_to\_mc.py} was to convert the \_struct.txt files to \_mc.txt for the SVM-hmm model.}
 
 
 
@@ -449,35 +452,79 @@ The meaning of the fields in each line is described in \verb#data/fields_struct.
 	and the $x$-axis is the value of \verb#-c# varied in a range that you find reasonable,
 	\eg\ $\{1, 10, 100, 1000\}$.
 	Theoretically, a small \verb#-c# value will ignore the training data and generalize poorly on test data.
-	On the other hand, overly large \verb#-c# may lead to overfitting, and make optimization challenging (taking a lot of time to converge).
+	On the other hand, overly large \verb#-c# may lead to over-fitting, and make optimization challenging (taking a lot of time to converge).
 	
 	\textbf{Hint}: to roughly find a reasonable range of \verb#-c#, a commonly used heuristic is to try on a small sub-sample of the data, and then apply it to a larger data set (be wary of normalization by the number of training example for LibLinear as mentioned above).
+
+	\begin{figure}[h]
+	\centering
+
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{q3_crf_letter-wise.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{q3_svm_hmm_letter-wise.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{q3_svm_mc_letter-wise.png}
+	\end{minipage}
+
+	\textcolor{b}{\caption{Letter-wise accuracy comparison for CRF, SVM-HMM, and SVM-MC}}
+	\end{figure}
 	
 	What observation can be made on the result?
 	
+	\textcolor{b}{The scripts used to train, predict, calulcate letter-wise accuracies and plot results for each C are located under \textbf{code/} as \textbf{q3\_crf.py, q3\_svm\_hmm.py, q3\_svm\_mc.py.}}
+	
+	\textcolor{b}{Looking at the letter-wise accuracy scores, all models have a similar curve and the improvements of accuracy drop off after c=1000. The gradual increase in accuracy is similar between all models. With CRF, the accuracy improvement is greater as it begins at \textasciitilde45\% and jumps as high as \textasciitilde85\% , while the SVM-HMM has an accuracy jump from \textasciitilde65\% to \textasciitilde85\%, and the SVC-MC from \textasciitilde48\% to \textasciitilde70\%. Ideal c value is 1000.} 
+
+	\newpage 
+
 	\item[(3b)] {\bf [5 Marks]} Produce another three plots for word-wise prediction accuracy on test data.  What observation can be made on the result?
 	%Note in SVM-MC, we used the trick of treating each letter as a word. Therefore some conversion is needed to compute the word-wise accuracy. So another file \verb#data/test_index.txt# is provided.  Each line of it corresponds to a letter in the test set, and it has the same number of lines as \verb#test_mc.txt#.  Each line has a single integer which is the word-id from the original data.  So two lines with the same integer means their corresponding letters belong to the same word.
+
+	\begin{figure}[h]
+	\centering
+
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{q3_crf_word-wise.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{q3_svm_hmm_word-wise.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{q3_svm_mc_word-wise.png}
+	\end{minipage}
+
+	\textcolor{b}{\caption{Word-wise accuracy comparison for CRF, SVM-HMM, and SVM-MC}}
+	\end{figure}
+
+	\textcolor{b}{The scripts (same as 3a.) used to train, predict, calculate word-wise accuracies, and plot results for each C are located under (same files as 3a.) \textbf{code/} as \textbf{q3\_crf.py, q3\_svm\_hmm.py, q3\_svm\_mc.py.}}
+
+	\textcolor{b}{Due to the SVM-MC treating every single letter as its own word and not accounting for transitions between letters, it makes sense to see the word accuracy is on average lower by about \textasciitilde30\% compared to CRF and SVM-HMM models. Similar to the curves for letter-wise accuracy across all models, there is a steady increase in accuracy as C increases here, with CRF jumping from \textasciitilde0\% to \textasciitilde50\%, SVM-HMM jumping from \textasciitilde15\% to \textasciitilde50\%, and SVM-MC jumping from \textasciitilde2\% to \textasciitilde17\%. Ideal c value remains 1000.}
+	
+
 \end{itemize}
 
 
 \section{Stochastic Optimization}
-
-\begin{figure}[t]
-	\centering
-	\subfigure[Training objective v.s. effective pass]{
-		\includegraphics[width=6cm]{obj_compare}}
-	\hspace{4em}
-	\subfigure[Test word-wise error v.s. effective pass]{
-		\includegraphics[width=6cm]{error_compare}}
-	\caption{Comparison of SGD, momentum, and LBFGS}
-	\label{fig:compare_optimizer}
-\end{figure}
 
 
 So far, we have trained CRF (\ie, solving \eqref{eq:obj_MLE}) by batch optimization.
 We now test stochastic optimization in two senses:
 stochastic mini-batch and sampling based inference.
 For this section, you should fix the value of $C$ in the CRF to the best value found by the previous section.
+
 %
 \begin{itemize}
 	\item[(4a)] {\bf [8 Marks]}
@@ -515,7 +562,20 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	All the three solvers have hyperparameters, including $B$ and learning rate for SGD and momentum.
 	Tune them well for all the methods respectively before plotting.
 	You can tune them based on how fast the training objective decays.
-	%
+	
+	\textcolor{b}{** ADD UPDATED PLOTS HERE ** The script \textbf{code/q4\_sdg.py} contains the code that runs SGD, momentum, and LBFGS optimizations and records the training objective value and word-wise error for the plots.}
+
+	\begin{figure}[t]
+	\centering
+	\subfigure[Training objective v.s. effective pass]{
+		\includegraphics[width=6cm]{obj_compare}}
+	\hspace{4em}
+	\subfigure[Test word-wise error v.s. effective pass]{
+		\includegraphics[width=6cm]{error_compare}}
+	\caption{Comparison of SGD, momentum, and LBFGS}
+	\label{fig:compare_optimizer}
+	\end{figure}
+
 	\item[(4b)] {\bf [8 Marks]} 
 	Since the dynamic programming based gradient computation can still be expensive,
 	an alternative is to evaluate the gradient by sampling,
@@ -553,6 +613,9 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	Compare it with the cost of dynamic programming.
 	Your complexity should be expressed in the number of letters in the word ($m$),
 	and the size of the alphabet (\ie, $\abr{\Ycal}=26$).
+
+	\textcolor{b}{The work and explanation for 4bi is shown on the following page.}
+	\includepdf[pages=-]{lab1_4b.pdf}
 	
 	Incidentally, you may have noticed that it is even more time consuming to draw a reasonable number of samples than to run the dynamic programming.
 	This is expected because we are working on a linear chain on which dynamic programming is feasible.
@@ -573,6 +636,8 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	\textbf{Hint}: You do not need to use a large number of samples.  $S=10$ or even 5 might work.
 	
 	\textbf{How to debug your sampler?} The easiest way is to take an arbitrary word, and compute the node and edge marginal distributions based on samples.  Then compare them with the result of dynamic programming.  The difference should decay to 0 as $S$ grows.
+
+	\textcolor{b}{NEED TO ADD REVISED PLOTS FOR 4bii AND OBSERVATIONS HERE}
 	
 	\item[(4c)] {\bf [8 Marks]} 
 	Rao-Blackwellization. 
@@ -606,6 +671,77 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	Use your own intuition and resort to experiment to figure out a reasonable algorithm.
 	The `correct' algorithm is not unique, and it works when the divergence against the dynamic programming result decays to 0 as more and more samples are drawn.
 	See the next sub-question (ii).
+
+	\textcolor{b}{The pseudocode is labeled as \textbf{Algorithm 1} on the next page and has been converted into latex readable pseudocode using the help of ChatGPT.}
+
+	\newpage
+
+	\begin{algorithm}
+	\caption{Rao-Blackwellized Gibbs Sampling for CRF Marginals}
+
+	\textbf{Initialization:}
+
+	Initialize $y = (y_1, \dots, y_m)$ randomly\;
+	Initialize node\_counts[$k$][$c$] $\gets 0$ for all $k,c$\;
+	Initialize edge\_counts[$k$][$c,c'$] $\gets 0$ for all $k,c,c'$\;
+
+	\BlankLine
+
+	\textbf{Main Loop:}
+
+	\For{$iter = 1$ \KwTo $S$}{
+		\For{$k = 1$ \KwTo $m$}{
+
+			Compute log conditional of $y_k$ given all other variables\;
+
+			$log\_p[c] \gets \langle w_c, x_k \rangle$\;
+
+			\If{$k > 1$}{
+				$log\_p[c] \gets log\_p[c] + T[y_{k-1}, c]$\;
+			}
+
+			\If{$k < m$}{
+				$log\_p[c] \gets log\_p[c] + T[c, y_{k+1}]$\;
+			}
+
+			Normalize to obtain conditional probability vector\;
+
+			$p[c] \gets softmax(log\_p[c])$\;
+
+			\BlankLine
+			\textbf{Rao-Blackwell Update}
+
+			\ForEach{$c$}{
+				node\_counts[$k$][$c$] $\gets$ node\_counts[$k$][$c$] + $p[c]$\;
+			}
+
+			\If{$k > 1$}{
+				edge\_counts[$k-1$][$y_{k-1},c$] $\gets$ edge\_counts[$k-1$][$y_{k-1},c$] + $p[c]$\;
+			}
+
+			\If{$k < m$}{
+				edge\_counts[$k$][$c,y_{k+1}$] $\gets$ edge\_counts[$k$][$c,y_{k+1}$] + $p[c]$\;
+			}
+
+			Draw new sample: $y_k \sim \text{Categorical}(p)$\;
+
+		}
+	}
+
+	\BlankLine
+
+	\textbf{Normalization:}
+
+	\For{$k = 1$ \KwTo $m$}{
+		$\tilde{p}_k[c] = \dfrac{node\_counts[k][c]}{\sum_{c'} node\_counts[k][c']}$\;
+	}
+
+	\For{$k = 1$ \KwTo $m-1$}{
+		$\tilde{p}_{k,k+1}[c,c'] =
+		\dfrac{edge\_counts[k][c,c']}{\sum_{c,c'} edge\_counts[k][c,c']}$\;
+	}
+
+	\end{algorithm}
 	
 	\textbf{(ii)} Take the model in \verb#data/model.txt# and the first word in \verb#data/train.txt#. Then plot in one figure the KL-divergence between MCMC estimate $\ptil$ and the dynamic programming result $p$, with or without Rao-Blackwellization.
 	The x-axis is the number of samples,
@@ -616,6 +752,17 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	there should be \textbf{four} curves in the plot.
 	If it helps, use logarithmic scale for some axis.
 	What observation can be made?
+
+	\textcolor{b}{The script to run MCMC with Rao-Blackwellization and without, and produce the corresponding KL divergence values across samples are in \textbf{code/q4c\_rao\_blackwell.py}.}
+	
+	\textcolor{b}{The KL divergence for the Node and Edge with RB has a faster convergence than the Node and Edge values without. Therefore, RB is effective at reduciing variance. Another small piece to note is that Node marginals are easier to estimate than Edge marginals, but RB improves them both.}
+
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{q4c_plot.png}
+	\caption{\textcolor{b}{\textcolor{b}{Demonstrating the KL divergence across many samples}}}
+	\end{figure}
+
 \end{itemize}
 
 
@@ -666,14 +813,33 @@ All line numbers appear exactly once.
 \begin{itemize}
 	\item[(5a)] {\bf [10 Marks]} In one figure, plot the following two curves where the $y$-axis is the letter-wise prediction accuracy on test data.  We will apply to the training data the first $x$ lines of transformations specified in \verb#data/transform.txt#.  $x$ is varied in $\{0, 500, 1000, 1500, 2000\}$ and serves as the value of $x$-axis.
 	
-	1) CRF where the \verb#-c# parameter is set to any of the best values found in (3a);
-	
+	\textcolor{b}{The script \textbf{code/q5\_transform\_util.py} contains the utility functions used to apply transformations to the data. The script \textbf{code/q5\_driver.py} contains the loop that trains, predicts and records both letter-wise and word-wise accuracies for CRF and SVM-MC models across varying amounts of transformations.}
+
+	1) CRF where the \verb#-c# parameter is set to any of the best values found in (3a).
+
 	2) SVM-MC where the \verb#-c# parameter is set to any of the best values found in (3a).
-	
+
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{q5_letter-wise.png}
+	\caption{\textcolor{b}{Letter-wise accuracy for CRF and SVM-MC across increasing transformations.}}
+	\end{figure}
+
 	What observation can be made on the result?
 	
+	\textcolor{b}{Both the CRF model and SVM-MC at c=1000 demonstrate a steady decrease in accuracy as there are more transformations applied to the data. Both also decrease in letter-wise accuracy by a net of around \textasciitilde10\%. There is a slight robustness to distortion, but the models are definitely affected.}
+
 	\item[(5b)] {\bf [5 Marks]}  Generate another plot for word-wise prediction accuracy on test data.  The \verb#-c# parameter in SVM-MC may adopt any of the best values found in (3b).
+	
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{q5_word-wise.png}
+	\caption{\textcolor{b}{\textcolor{b}{Word-wise accuracy for CRF and SVM-MC across increasing transformations.}}}
+	\end{figure}
+
 	What observation can be made on the result?
+
+	\textcolor{b}{The SVM-MC underperforms compared to the CRF for word-wise scoring, which was explained earlier in question 3, however both models still do see a decrease in accuracies. The CRF drops by \textasciitilde20\%, and the SVM-MC drops by \textasciitilde10\%.}
 	
 \end{itemize}
 

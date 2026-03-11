@@ -18,27 +18,33 @@
 \newlabel{eq:obj_MLE}{{6}{9}{Training Conditional Random Fields}{equation.0.6}{}}
 \newlabel{eq:model_vec}{{7}{10}{Training Conditional Random Fields}{equation.0.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Benchmarking with Other Learning Models}{11}{section.0.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of SGD, momentum, and LBFGS}}{12}{figure.0.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Training objective v.s. effective pass}}}{12}{figure.0.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Test word-wise error v.s. effective pass}}}{12}{figure.0.3}\protected@file@percent }
-\newlabel{fig:compare_optimizer}{{3}{12}{Comparison of SGD, momentum, and LBFGS}{figure.0.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Letter-wise accuracy comparison for CRF, SVM-HMM, and SVM-MC}}{12}{figure.0.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Word-wise accuracy comparison for CRF, SVM-HMM, and SVM-MC}}{13}{figure.0.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Stochastic Optimization}{13}{section.0.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Robustness to Distortion}{15}{section.0.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix: Dynamic programming details}{17}{section.0.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Computing the partition function}{17}{subsection.0.6.1}\protected@file@percent }
-\newlabel{sec:partition}{{6.1}{17}{Computing the partition function}{subsection.0.6.1}{}}
-\newlabel{eq:rec_Z_forward_1}{{10}{17}{Computing the partition function}{equation.0.10}{}}
-\newlabel{eq:rec_Z_forward_2}{{12}{17}{Computing the partition function}{equation.0.12}{}}
-\@writefile{toc}{\contentsline {paragraph}{Comment 1:}{17}{section*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Comment 2:}{17}{section*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}MAP inference}{18}{subsection.0.6.2}\protected@file@percent }
-\newlabel{sec:MAP_formula}{{6.2}{18}{MAP inference}{subsection.0.6.2}{}}
-\newlabel{eq:rec_MAP_forward_1}{{21}{18}{MAP inference}{equation.0.21}{}}
-\newlabel{eq:rec_MAP_forward_2}{{23}{18}{MAP inference}{equation.0.23}{}}
-\@writefile{toc}{\contentsline {paragraph}{Comment 3:}{18}{section*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Marginal distribution}{19}{subsection.0.6.3}\protected@file@percent }
-\newlabel{sec:marginal}{{6.3}{19}{Marginal distribution}{subsection.0.6.3}{}}
-\newlabel{eq:rec_Z_forward_1}{{33}{19}{Marginal distribution}{equation.0.33}{}}
-\newlabel{eq:rec_Z_forward_2}{{35}{19}{Marginal distribution}{equation.0.35}{}}
-\@writefile{toc}{\contentsline {paragraph}{Comment 4:}{19}{section*.7}\protected@file@percent }
-\gdef \@abspage@last{19}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Comparison of SGD, momentum, and LBFGS}}{14}{figure.0.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Training objective v.s. effective pass}}}{14}{figure.0.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Test word-wise error v.s. effective pass}}}{14}{figure.0.5}\protected@file@percent }
+\newlabel{fig:compare_optimizer}{{5}{14}{Comparison of SGD, momentum, and LBFGS}{figure.0.5}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Rao-Blackwellized Gibbs Sampling for CRF Marginals}}{18}{algocf.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \textcolor {b}{\textcolor {b}{Demonstrating the KL divergence across many samples}}}}{19}{figure.0.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Robustness to Distortion}{19}{section.0.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \textcolor {b}{Letter-wise accuracy for CRF and SVM-MC across increasing transformations.}}}{20}{figure.0.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \textcolor {b}{\textcolor {b}{Word-wise accuracy for CRF and SVM-MC across increasing transformations.}}}}{21}{figure.0.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Appendix: Dynamic programming details}{21}{section.0.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Computing the partition function}{21}{subsection.0.6.1}\protected@file@percent }
+\newlabel{sec:partition}{{6.1}{21}{Computing the partition function}{subsection.0.6.1}{}}
+\newlabel{eq:rec_Z_forward_1}{{10}{21}{Computing the partition function}{equation.0.10}{}}
+\newlabel{eq:rec_Z_forward_2}{{12}{21}{Computing the partition function}{equation.0.12}{}}
+\@writefile{toc}{\contentsline {paragraph}{Comment 1:}{21}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Comment 2:}{22}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}MAP inference}{22}{subsection.0.6.2}\protected@file@percent }
+\newlabel{sec:MAP_formula}{{6.2}{22}{MAP inference}{subsection.0.6.2}{}}
+\newlabel{eq:rec_MAP_forward_1}{{21}{22}{MAP inference}{equation.0.21}{}}
+\newlabel{eq:rec_MAP_forward_2}{{23}{22}{MAP inference}{equation.0.23}{}}
+\@writefile{toc}{\contentsline {paragraph}{Comment 3:}{23}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Marginal distribution}{23}{subsection.0.6.3}\protected@file@percent }
+\newlabel{sec:marginal}{{6.3}{23}{Marginal distribution}{subsection.0.6.3}{}}
+\newlabel{eq:rec_Z_forward_1}{{33}{23}{Marginal distribution}{equation.0.33}{}}
+\newlabel{eq:rec_Z_forward_2}{{35}{23}{Marginal distribution}{equation.0.35}{}}
+\@writefile{toc}{\contentsline {paragraph}{Comment 4:}{24}{section*.7}\protected@file@percent }
+\gdef \@abspage@last{24}

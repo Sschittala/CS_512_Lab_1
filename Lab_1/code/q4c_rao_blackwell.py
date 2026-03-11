@@ -78,8 +78,8 @@ def gibbs_sample_rb(X, W, T, S):
     return node_marg, edge_marg
 
 def run_q4c():
-    W, T = load_model("data/model.txt")
-    train_x, train_y = load_train("data/train.txt")
+    W, T = load_model("../data/model.txt")
+    train_x, train_y = load_train("../data/train.txt")
     X = train_x[0]
     y = train_y[0]
     _, true_node, true_edge = forward_backward(X, W, T, y)
