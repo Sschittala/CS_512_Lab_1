@@ -195,30 +195,56 @@ def run_lbfgs(train_x, train_y, test_x, test_y, C=1000, maxfun=300):
 def plot_histories(sgd_hist, mom_hist, lbfgs_hist):
     _, sgd_pass, sgd_obj, sgd_err = sgd_hist
     _, mom_pass, mom_obj, mom_err = mom_hist
-    _, lbfgs_pass, lbfgs_obj, lbfgs_err = lbfgs_hist
+    _, lbfgs_eval, lbfgs_obj, lbfgs_err = lbfgs_hist
 
-    plt.figure(figsize=(7,5))
+    # 1) SGD + Momentum: training objective vs effective passes
+    plt.figure(figsize=(7, 5))
     plt.plot(sgd_pass, sgd_obj, label="SGD")
     plt.plot(mom_pass, mom_obj, label="Momentum")
-    plt.plot(lbfgs_pass, lbfgs_obj, label="LBFGS")
     plt.xlabel("Effective number of passes")
     plt.ylabel("Training objective")
-    plt.title("Q4a: Training objective")
+    plt.title("Q4a: Training objective (SGD vs Momentum)")
     plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
     plt.tight_layout()
-    plt.savefig("../result/q4a_objective.png")
+    plt.savefig("../result/q4a_objective_sgd_momentum.png", dpi=200)
     plt.close()
 
-    plt.figure(figsize=(7,5))
+    # 2) LBFGS: training objective vs function evaluations
+    plt.figure(figsize=(7, 5))
+    plt.plot(lbfgs_eval, lbfgs_obj, label="LBFGS")
+    plt.xlabel("Number of function evaluations")
+    plt.ylabel("Training objective")
+    plt.title("Q4a: Training objective (LBFGS)")
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.tight_layout()
+    plt.savefig("../result/q4a_objective_lbfgs.png", dpi=200)
+    plt.close()
+
+    # 3) SGD + Momentum: test word-wise error vs effective passes
+    plt.figure(figsize=(7, 5))
     plt.plot(sgd_pass, sgd_err, label="SGD")
     plt.plot(mom_pass, mom_err, label="Momentum")
-    plt.plot(lbfgs_pass, lbfgs_err, label="LBFGS")
     plt.xlabel("Effective number of passes")
     plt.ylabel("Test word-wise error")
-    plt.title("Q4a: Test word-wise error")
+    plt.title("Q4a: Test word-wise error (SGD vs Momentum)")
     plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
     plt.tight_layout()
-    plt.savefig("../result/q4a_word_error.png")
+    plt.savefig("../result/q4a_word_error_sgd_momentum.png", dpi=200)
+    plt.close()
+
+    # 4) LBFGS: test word-wise error vs function evaluations
+    plt.figure(figsize=(7, 5))
+    plt.plot(lbfgs_eval, lbfgs_err, label="LBFGS")
+    plt.xlabel("Number of function evaluations")
+    plt.ylabel("Test word-wise error")
+    plt.title("Q4a: Test word-wise error (LBFGS)")
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.tight_layout()
+    plt.savefig("../result/q4a_word_error_lbfgs.png", dpi=200)
     plt.close()
 
 # q4a
