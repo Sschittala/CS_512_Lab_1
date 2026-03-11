@@ -227,7 +227,7 @@ test_x, test_y = load_train("../data/test.txt")
 
 C = 10000 # Choose optimal C
 
-sgd_hist = run_sgd(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, steps=500)
-mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, momentum=0.9, steps=500)
-lbfgs_hist = run_lbfgs(train_x, train_y, test_x, test_y, C=C, maxfun=300)
+sgd_hist = run_sgd(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, steps=200)
+mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, momentum=0.9, steps=200)
+lbfgs_hist = run_lbfgs(train_x, train_y, test_x, test_y, C=C, maxfun=200)
 plot_histories(sgd_hist, mom_hist, lbfgs_hist)
