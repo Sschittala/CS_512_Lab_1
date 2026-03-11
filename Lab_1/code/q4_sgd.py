@@ -92,7 +92,7 @@ def run_sgd(train_x, train_y, test_x, test_y, sample_rate, C=1000, B=32, lr=1e-3
         params = params - lr * grad
 
         eff_pass = (step + 1) * B / n
-       
+        
         if step % sample_rate == 0:
             history_pass.append(eff_pass)
             history_obj.append(full_objective(params, train_x, train_y, d, K, C))
@@ -141,7 +141,6 @@ def run_sgd_momentum(train_x, train_y, test_x, test_y, sample_rate, C=1000, B=32
             history_pass.append(eff_pass)
             history_obj.append(full_objective(params, train_x, train_y, d, K, C))
             history_err.append(word_error(params, test_x, test_y, d, K))
-
             print(
                 f"  [Momentum] step={step:4} "
                 f"pass={eff_pass:.3f} "
@@ -156,7 +155,7 @@ def run_sgd_momentum(train_x, train_y, test_x, test_y, sample_rate, C=1000, B=32
     return params, history_pass, history_obj, history_err
 
 
-def run_lbfgs(train_x, train_y, test_x, test_y, C=1000, maxfun=300):
+def run_lbfgs(train_x, train_y, test_x, test_y, C=1000, maxfun=100):
     d = 128
     K = 26
     params = np.zeros(K*d + K*K)
@@ -167,15 +166,15 @@ def run_lbfgs(train_x, train_y, test_x, test_y, C=1000, maxfun=300):
     history_err = []
 
     def tracked_obj(p, *args):
-        eval_count["n"] += 1
         return objective_and_grad(p, *args)
 
     def callback(p):
-        history_pass.append(eval_count["n"])
+        eval_count['n'] += 1
+        history_pass.append(eval_count['n'])
         history_obj.append(full_objective(p, train_x, train_y, d, K, C))
         history_err.append(word_error(p, test_x, test_y, d, K))
         print(
-            f"  [LBFGS] step={len(history_pass):4} "
+            f"  [LBFGS] step={eval_count['n']:4} "
             f"obj={history_obj[-1]:.4f} "
             f"test_err={history_err[-1]:.4f}"
         )
@@ -186,8 +185,7 @@ def run_lbfgs(train_x, train_y, test_x, test_y, C=1000, maxfun=300):
         x0=params,
         args=(train_x, train_y, d, K, C),
         callback=callback,
-        maxfun=maxfun,
-        messages=5
+        maxfun=maxfun
     )
 
     return params_opt, history_pass, history_obj, history_err
@@ -195,8 +193,33 @@ def run_lbfgs(train_x, train_y, test_x, test_y, C=1000, maxfun=300):
 def plot_histories(sgd_hist, mom_hist, lbfgs_hist):
     _, sgd_pass, sgd_obj, sgd_err = sgd_hist
     _, mom_pass, mom_obj, mom_err = mom_hist
-    _, lbfgs_eval, lbfgs_obj, lbfgs_err = lbfgs_hist
+    _, lbfgs_pass, lbfgs_obj, lbfgs_err = lbfgs_hist
 
+    plt.figure(figsize=(7,5))
+    plt.plot(sgd_pass, sgd_obj, label="SGD")
+    plt.plot(mom_pass, mom_obj, label="Momentum")
+    plt.plot(lbfgs_pass, lbfgs_obj, label="LBFGS")
+    plt.xlabel("Effective number of passes")
+    plt.ylabel("Training objective")
+    plt.title("Q4a: Training objective")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig("../result/q4a_objective.png", dpi=200)
+    plt.close()
+
+    plt.figure(figsize=(7,5))
+    plt.plot(sgd_pass, sgd_err, label="SGD")
+    plt.plot(mom_pass, mom_err, label="Momentum")
+    plt.plot(lbfgs_pass, lbfgs_err, label="LBFGS")
+    plt.xlabel("Effective number of passes")
+    plt.ylabel("Test word-wise error")
+    plt.title("Q4a: Test word-wise error")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig("../result/q4a_word_error.png", dpi=200)
+    plt.close()
+
+    '''
     # 1) SGD + Momentum: training objective vs effective passes
     plt.figure(figsize=(7, 5))
     plt.plot(sgd_pass, sgd_obj, label="SGD")
@@ -246,15 +269,16 @@ def plot_histories(sgd_hist, mom_hist, lbfgs_hist):
     plt.tight_layout()
     plt.savefig("../result/q4a_word_error_lbfgs.png", dpi=200)
     plt.close()
+    '''
 
 # q4a
-if __name__ == "__main__":
-    train_x, train_y = load_train("../data/train.txt")
-    test_x, test_y = load_train("../data/test.txt")
+train_x, train_y = load_train("../data/train.txt")
+test_x, test_y = load_train("../data/test.txt")
 
-    C = 10000 # Choose optimal C
+C = 10000 # Choose optimal C
+n = 200
 
-    sgd_hist = run_sgd(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, steps=200)
-    mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, momentum=0.9, steps=200)
-    lbfgs_hist = run_lbfgs(train_x, train_y, test_x, test_y, C=C, maxfun=200)
-    plot_histories(sgd_hist, mom_hist, lbfgs_hist)
+sgd_hist = run_sgd(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, steps=n)
+mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, momentum=0.9, steps=n)
+lbfgs_hist = run_lbfgs(train_x, train_y, test_x, test_y, C=C, maxfun=n)
+plot_histories(sgd_hist, mom_hist, lbfgs_hist)
