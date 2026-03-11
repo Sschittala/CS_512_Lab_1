@@ -212,7 +212,7 @@ def plot_histories(sgd_hist, mom_hist, lbfgs_hist):
     plt.figure(figsize=(7,5))
     plt.plot(sgd_pass, sgd_err, label="SGD")
     plt.plot(mom_pass, mom_err, label="Momentum")
-    plt.plot(lbfgs_pass, pbfgs_err, label="LBFGS")
+    plt.plot(lbfgs_pass, lbfgs_err, label="LBFGS")
     plt.xlabel("Effective number of passes")
     plt.ylabel("Test word-wise error")
     plt.title("Q4a: Test word-wise error")
