@@ -92,11 +92,11 @@ def run_sgd(train_x, train_y, test_x, test_y, sample_rate, C=1000, B=32, lr=1e-3
         params = params - lr * grad
 
         eff_pass = (step + 1) * B / n
-        history_pass.append(eff_pass)
-        history_obj.append(full_objective(params, train_x, train_y, d, K, C))
-        history_err.append(word_error(params, test_x, test_y, d, K))
-        
+       
         if step % sample_rate == 0:
+            history_pass.append(eff_pass)
+            history_obj.append(full_objective(params, train_x, train_y, d, K, C))
+            history_err.append(word_error(params, test_x, test_y, d, K))
             print(
                 f"  [SGD] step={step:4} "
                 f"pass={eff_pass:.3f} "
@@ -136,11 +136,12 @@ def run_sgd_momentum(train_x, train_y, test_x, test_y, sample_rate, C=1000, B=32
         params = params + velocity
 
         eff_pass = (step + 1) * B / n
-        history_pass.append(eff_pass)
-        history_obj.append(full_objective(params, train_x, train_y, d, K, C))
-        history_err.append(word_error(params, test_x, test_y, d, K))
 
         if step % sample_rate == 0:
+            history_pass.append(eff_pass)
+            history_obj.append(full_objective(params, train_x, train_y, d, K, C))
+            history_err.append(word_error(params, test_x, test_y, d, K))
+
             print(
                 f"  [Momentum] step={step:4} "
                 f"pass={eff_pass:.3f} "
@@ -174,8 +175,7 @@ def run_lbfgs(train_x, train_y, test_x, test_y, C=1000, maxfun=300):
         history_obj.append(full_objective(p, train_x, train_y, d, K, C))
         history_err.append(word_error(p, test_x, test_y, d, K))
         print(
-            f"  [LBFGS] step={step:4} "
-            f"pass={eff_pass:.3f} "
+            f"  [LBFGS] step={len(history_pass):4} "
             f"obj={history_obj[-1]:.4f} "
             f"test_err={history_err[-1]:.4f}"
         )
@@ -225,9 +225,9 @@ def plot_histories(sgd_hist, mom_hist, lbfgs_hist):
 train_x, train_y = load_train("../data/train.txt")
 test_x, test_y = load_train("../data/test.txt")
 
-C = 1000 # Choose optimal C
+C = 10000 # Choose optimal C
 
-sgd_hist = run_sgd(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, steps=50)
-mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, momentum=0.9, steps=50)
+sgd_hist = run_sgd(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, steps=500)
+mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, momentum=0.9, steps=500)
 lbfgs_hist = run_lbfgs(train_x, train_y, test_x, test_y, C=C, maxfun=300)
 plot_histories(sgd_hist, mom_hist, lbfgs_hist)
