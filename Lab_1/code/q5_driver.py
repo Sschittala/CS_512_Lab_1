@@ -24,7 +24,7 @@ trans_values = [0, 500, 1000, 1500, 2000]
 
 # hyperparameters defined from q3
 crf_best_C = 1000
-svm_mc_best_C = 1
+svm_mc_best_C = 1000
 
 # load in the transformations
 letters_orig = load_train_data(train_file)
@@ -143,7 +143,12 @@ for x in trans_values:
     y_test_mc, x_test_mc = svm_read_problem('../data/test_mc.txt')  # existing test_mc
 
     print("training SVM-MC...")
-    model = train(y_train_mc, x_train_mc, f"-c {svm_mc_best_C}")
+    
+    # lab hint: divide C by number of training samples before passing to LibLinear
+    n = len(y_train_mc)
+    adjusted_C = svm_mc_best_C / n
+
+    model = train(y_train_mc, x_train_mc, f"-c {adjusted_C}")
 
     # predict
     y_pred_mc, _, _ = predict(y_test_mc, x_test_mc, model, options='-q')

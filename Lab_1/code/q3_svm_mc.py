@@ -74,9 +74,16 @@ C_values = [1, 10, 100, 1000, 10000]
 letter_accuracies = []
 word_accuracies = []
 
+# number of training samples (needed to adjust C for LibLinear)
+n = len(y_train)
+
 for C in C_values:
     print(f"\ntraining with C={C} ...")
-    model = train(y_train, x_train, f"-c {C}")
+
+    # lab hint: divide C by number of training samples before passing to LibLinear
+    adjusted_C = C / n
+
+    model = train(y_train, x_train, f"-c {adjusted_C}")
 
     print(f"predicting with C={C} ...")
     y_pred, _, _ = predict(y_test, x_test, model, options="-q")
@@ -95,7 +102,7 @@ for C in C_values:
 
 # letter-wise
 plt.figure(figsize=(6,4))
-plt.plot(C_values, letter_accuracies, marker='o', color='blue')
+plt.plot(C_values, letter_accuracies, marker='o')
 plt.xscale('log')
 plt.xlabel("Regularization Parameter C")
 plt.ylabel("Letter-wise Accuracy")
@@ -106,7 +113,7 @@ plt.show()
 
 # word-wise
 plt.figure(figsize=(6,4))
-plt.plot(C_values, word_accuracies, marker='s', color='blue')
+plt.plot(C_values, word_accuracies, marker='s')
 plt.xscale('log')
 plt.xlabel("Regularization Parameter C")
 plt.ylabel("Word-wise Accuracy")
