@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1772579730.09015 "/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/CS_512_Lab_1/Lab_1/latex/Lab_1.tex" "Lab_1.pdf" "Lab_1" 1772579730.60495 0
-  "/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/CS_512_Lab_1/Lab_1/latex/Lab_1.tex" 1772579690.15925 44330 0000b68b8dac27f070195617814629b4 ""
+["pdflatex"] 1773201774.35317 "/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/CS_512_Lab_1/Lab_1/latex/Lab_1.tex" "Lab_1.pdf" "Lab_1" 1773201774.9593 0
+  "/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/CS_512_Lab_1/Lab_1/latex/Lab_1.tex" 1773201773.44142 45540 ea2c8d21b777f65d0931ec94a0eb4277 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -171,10 +171,12 @@
   "Figures/brace.jpg" 1412072554 21173 6d8a27831bfca13c027974aa7ecfa6ae ""
   "Figures/crf.pdf" 1412141346 20236 46de3764de03f6fee9821a9b0ca5442b ""
   "Figures/error_compare.pdf" 1643594488 112458 5549eacfeb7d2673a54eaf55ffbdddfe ""
+  "Figures/lab1_1a.pdf" 1772643342.43055 625834 94d76a1bdaabc7f1402b15bd78fdca12 ""
+  "Figures/lab1_1b.pdf" 1773200425.02623 213686 ecdf7886c2837f20a0a373e35901445c ""
   "Figures/obj_compare.pdf" 1643594472 112382 25f2ad50aac8709d12cf3dd7ae5e6f00 ""
-  "Lab_1.aux" 1772579730.54699 4125 9a44ee200d325c8d935643eebeb86e7e "pdflatex"
-  "Lab_1.out" 1772579730.5475 1753 412b4bf1eb544be2abf689be62e466df "pdflatex"
-  "Lab_1.tex" 1772579690.15925 44330 0000b68b8dac27f070195617814629b4 ""
+  "Lab_1.aux" 1773201774.89756 4133 88b722ea3736d84cdfa8c6cf7281867f "pdflatex"
+  "Lab_1.out" 1773201774.89807 1753 412b4bf1eb544be2abf689be62e466df "pdflatex"
+  "Lab_1.tex" 1773201773.44142 45540 ea2c8d21b777f65d0931ec94a0eb4277 ""
   "assignment_programming.sty" 1770842548 8510 8ea9dd6d086cb189e59e1bbe5ca1988a ""
   (generated)
   "Lab_1.aux"

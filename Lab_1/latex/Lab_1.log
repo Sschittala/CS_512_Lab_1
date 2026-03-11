@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.18)  3 MAR 2026 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.18)  10 MAR 2026 23:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -431,24 +431,24 @@ LaTeX Warning: Label `eq:rec_Z_forward_2' multiply defined.
 )
 \openout1 = `Lab_1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count334
@@ -468,7 +468,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 36.
+Package hyperref Info: Link coloring ON on input line 39.
  (./Lab_1.out) (./Lab_1.out)
 \@outlinefile=\write3
 \openout3 = `Lab_1.out'.
@@ -482,53 +482,145 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 63.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 66.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 63.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 66.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 63.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 66.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 63.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 66.
  [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 <./Figures/brace.jpg, id=64, 866.48718pt x 143.03438pt>
 File: ./Figures/brace.jpg Graphic file (type jpg)
 <use ./Figures/brace.jpg>
-Package pdftex.def Info: ./Figures/brace.jpg  used on input line 129.
+Package pdftex.def Info: ./Figures/brace.jpg  used on input line 132.
 (pdftex.def)             Requested size: 256.0748pt x 42.27115pt.
 <./Figures/crf.pdf, id=65, 251.40726pt x 115.32484pt>
 File: ./Figures/crf.pdf Graphic file (type pdf)
 <use ./Figures/crf.pdf>
-Package pdftex.def Info: ./Figures/crf.pdf  used on input line 136.
+Package pdftex.def Info: ./Figures/crf.pdf  used on input line 139.
 (pdftex.def)             Requested size: 142.26378pt x 65.25719pt.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 191.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 194.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 191.
- [2 <./Figures/brace.jpg> <./Figures/crf.pdf>] [3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [4] [5] [6]
-<./Figures/obj_compare.pdf, id=182, 296.2829pt x 277.10426pt>
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 194.
+ [2 <./Figures/brace.jpg> <./Figures/crf.pdf>]
+<./Figures/lab1_1a.pdf, id=109, 456.74641pt x 590.6567pt>
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf  used on input line 239.
+(pdftex.def)             Requested size: 456.7453pt x 590.65526pt.
+<./Figures/lab1_1a.pdf, id=111, page=1, 456.74641pt x 590.6567pt>
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf , page1 used on input line 239.
+(pdftex.def)             Requested size: 456.7453pt x 590.65526pt.
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf , page1 used on input line 239.
+(pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
+ [3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf , page1 used on input line 239.
+(pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf , page1 used on input line 239.
+(pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf , page1 used on input line 239.
+(pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
+ [4
+
+ <./Figures/lab1_1a.pdf>]
+<./Figures/lab1_1a.pdf, id=519, page=2, 456.74641pt x 590.6567pt>
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf, page 2>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf , page2 used on input line 239.
+(pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf, page 2>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf , page2 used on input line 239.
+(pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
+File: ./Figures/lab1_1a.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1a.pdf, page 2>
+Package pdftex.def Info: ./Figures/lab1_1a.pdf , page2 used on input line 239.
+(pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
+ [5
+
+ <./Figures/lab1_1a.pdf>]
+<./Figures/lab1_1b.pdf, id=772, 446.66875pt x 854.19125pt>
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf  used on input line 246.
+(pdftex.def)             Requested size: 446.66765pt x 854.18918pt.
+<./Figures/lab1_1b.pdf, id=774, page=1, 446.66875pt x 854.19125pt>
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf , page1 used on input line 246.
+(pdftex.def)             Requested size: 446.66765pt x 854.18918pt.
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf , page1 used on input line 246.
+(pdftex.def)             Requested size: 415.79294pt x 795.14565pt.
+ [6]
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf , page1 used on input line 246.
+(pdftex.def)             Requested size: 415.79294pt x 795.14565pt.
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf , page1 used on input line 246.
+(pdftex.def)             Requested size: 415.79294pt x 795.14565pt.
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf, page 1>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf , page1 used on input line 246.
+(pdftex.def)             Requested size: 415.79294pt x 795.14565pt.
+ [7
+
+ <./Figures/lab1_1b.pdf>]
+<./Figures/lab1_1b.pdf, id=790, page=2, 446.66875pt x 712.6625pt>
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf, page 2>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf , page2 used on input line 246.
+(pdftex.def)             Requested size: 415.79294pt x 663.4pt.
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf, page 2>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf , page2 used on input line 246.
+(pdftex.def)             Requested size: 415.79294pt x 663.4pt.
+File: ./Figures/lab1_1b.pdf Graphic file (type pdf)
+<use ./Figures/lab1_1b.pdf, page 2>
+Package pdftex.def Info: ./Figures/lab1_1b.pdf , page2 used on input line 246.
+(pdftex.def)             Requested size: 415.79294pt x 663.4pt.
+ [8
+
+ <./Figures/lab1_1b.pdf>] [9] [10] [11]
+<./Figures/obj_compare.pdf, id=852, 296.2829pt x 277.10426pt>
 File: ./Figures/obj_compare.pdf Graphic file (type pdf)
 <use ./Figures/obj_compare.pdf>
-Package pdftex.def Info: ./Figures/obj_compare.pdf  used on input line 452.
+Package pdftex.def Info: ./Figures/obj_compare.pdf  used on input line 468.
 (pdftex.def)             Requested size: 170.71652pt x 159.66351pt.
-<./Figures/error_compare.pdf, id=183, 296.28189pt x 273.58209pt>
+<./Figures/error_compare.pdf, id=853, 296.28189pt x 273.58209pt>
 File: ./Figures/error_compare.pdf Graphic file (type pdf)
 <use ./Figures/error_compare.pdf>
-Package pdftex.def Info: ./Figures/error_compare.pdf  used on input line 455.
+Package pdftex.def Info: ./Figures/error_compare.pdf  used on input line 471.
 (pdftex.def)             Requested size: 170.71652pt x 157.64244pt.
- [7 <./Figures/obj_compare.pdf> <./Figures/error_compare.pdf>] [8] [9] [10] [11] [12] [13] (./Lab_1.aux)
+ [12 <./Figures/obj_compare.pdf> <./Figures/error_compare.pdf>] [13] [14] [15] [16] [17] [18] [19] (./Lab_1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -541,18 +633,18 @@ Package rerunfilecheck Info: File `Lab_1.out' has not changed.
 (rerunfilecheck)             Checksum: 412B4BF1EB544BE2ABF689BE62E466DF;1753.
  ) 
 Here is how much of TeX's memory you used:
- 14389 strings out of 467533
- 213897 string characters out of 5419489
- 651400 words of memory out of 5000000
- 42979 multiletter control sequences out of 15000+600000
+ 14442 strings out of 467533
+ 215289 string characters out of 5419489
+ 651516 words of memory out of 5000000
+ 43026 multiletter control sequences out of 15000+600000
  644502 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,12n,93p,845b,699s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,93p,845b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on Lab_1.pdf (13 pages, 591607 bytes).
+Output written on Lab_1.pdf (19 pages, 1333622 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 308 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1085 PDF objects out of 1200 (max. 8388607)
+ 746 compressed objects within 8 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

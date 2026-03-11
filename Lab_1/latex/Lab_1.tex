@@ -9,6 +9,9 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{subfigure}
+\usepackage{xcolor}
+\definecolor{b}{RGB}{70,140,220}
+\usepackage{pdfpages}
 %\PassOptionsToPackage{normalem}{ulem}
 %\usepackage{ulem}
 
@@ -30,15 +33,15 @@
 
 
 % Fill in your name and email address
-\stuinfo{Your Name}{netid@uic.edu}
+\stuinfo{\textcolor{b}{SEE BELOW}}{\textcolor{b}{SEE BELOW}}
 \graphicspath{{./}{./Figures/}}
 
 \begin{document}
-
-\maketitle
+\maketitle \\
+\textcolor{b}{\textbf{Students:} \text{Tyler Strach, Miles Woodcock-Girard, Sai Chittala}} \\
+\textcolor{b}{\textbf{Emails:} \text{tstra6@uic.edu, mwoodc2@uic.edu, schit7@uic.edu}}
 
 {\bf Deadline: 23:59, Mar 6}
-
 
 {\bf This lab is for group work.
 Unless otherwise specified you cannot use any library beyond the standard ones provided with Python, Numpy, and Scipy}.
@@ -229,12 +232,18 @@ Given these parameters (\eg\ by learning from data), the model \eqref{eq:crf} ca
 	where $\llbracket \cdot \rrbracket = 1$ if $\cdot$ is true, and 0 otherwise.
 	Here $p(y_s | X^t)$ is the marginal distribution of $y_s$ given $X^t$ (based on \eqref{eq:crf}).
 	Show your derivation step by step.
-	
+
 	Now derive the similar expression for $\grad_{T_{ij}} \log p(\yvec^t|X^t)$.
+
+	\textcolor{b}{(1a) derivation is shown on the following 2 pages.}
+	\includepdf[pages=-]{lab1_1a.pdf}
 	
 	\item[(1b)] {\bf [5 Marks]} A feature is a function that depends on $X$ and $\yvec$, but not $p(\yvec|X)$. Show that the gradient of $\log Z_X$ with respect to $\wvec_c$ and $T$ is exactly the expectation of some features with respect to $p(\yvec | X)$, and what are the features? Include your derivation.
 	
 	Hint: $T_{y_s, y_{s+1}} = \sum_{p \in \Ycal, q \in \Ycal} T_{pq} \cdot \llbracket (y_s, y_{s+1}) = (p,q)  \rrbracket$.
+
+	\textcolor{b}{(1b) derivation is shown on the following 2 pages.}
+	\includepdf[pages=-]{lab1_1b.pdf}
 	
 	\item[(1c)] 
 	\label{qn:decoding}
@@ -268,6 +277,8 @@ Given these parameters (\eg\ by learning from data), the model \eqref{eq:crf} ca
 	In your report, provide the maximum objective value $\sum_{s=1}^m \inner{\wvec_{y_s}}{\xvec_s} + \sum_{s=1}^{m-1} T_{y_s, y_{s+1}}$ for this test case.
 	If you are using your own dynamic programming algorithm (\ie\ not max-sum),
 	give a brief description especially the formula of recursion.
+
+	\textcolor{b}{See \textbf{code/q1\_decode.py} for implmentation and \textbf{result/decode\_output.txt} for results. Need to include "maximum objective value" here, and add comments in the q1\_decode.py file.}
 \end{itemize}
 
 %\newpage
@@ -344,6 +355,8 @@ Here $C > 0$ is a trade-off weight that balances log-likelihood and regularizati
 	in your instructor's Python implementation,
 	it takes 5 seconds to compute the gradient on the whole training set.
 	Single core of Intel(R) i7-10510U CPU @ 1.80GHz.
+
+	\textcolor{b}{See \textbf{code/q2\_gradient.py} for implementation and \textbf{result/gradient.txt} for results. Need to add comments to this file and, average log p(y|X) over training set value}
 		
 	
 	\item[(2b)] {\bf [12 Marks]} We can now learn ($\{\wvec_c\}, T$) by solving the optimization problem in \eqref{eq:obj_MLE} based on the training examples in \verb#data/train.txt#.
@@ -373,6 +386,8 @@ Here $C > 0$ is a trade-off weight that balances log-likelihood and regularizati
 	In your report, provide the optimal objective value of \eqref{eq:obj_MLE} found by your solver.
 \end{itemize}
 
+\textcolor{b}{See \textbf{code/q2\_gradient.py} for implementation and \textbf{result/solution.txt, result/prediction} for results. Need to add comments to this file and, include "optimal objective value found by solver".}
+
 
 \section{Benchmarking with Other Learning Models}
 
@@ -400,6 +415,7 @@ use the $\text{SVM}^{\text{hmm}}$ package instead.
 No Matlab/Python wrapper for $\text{SVM}^{\text{hmm}}$ is available.
 So write up a script in your favorite language to call the \textbf{binary} executables and to parse the results.
 
+\textcolor{b}{The full folder for this model and its executables is under code/svm\_hmm}
 
 $\text{SVM}^{\text{hmm}}$ requires that the input data be stored in a different format.
 This conversion has been done for you, and the resulting data files are \verb#data/train_struct.txt# and \verb#data/test_struct.txt#.
