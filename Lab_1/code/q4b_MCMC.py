@@ -54,8 +54,7 @@ def compute_gradient_sampling(X, y_true, W, T, S=5):
             grad_w[y[s]] -= X[s] / S
         for s in range(m-1):
             grad_t[y[s], y[s+1]] -= 1.0 / S
-    log_p = 0
-    return log_p, grad_w, grad_t
+    return grad_w, grad_t
 
 def minibatch_obj_and_grad(params, words_x, words_y, batch_idx, d=128, K=26, C=1000, S=5):
     W = params[:K*d].reshape(K, d)
