@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.18)  11 MAR 2026 18:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.18)  11 MAR 2026 20:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -642,68 +642,74 @@ File: ./Figures/q3_svm_mc_word-wise.png Graphic file (type png)
 Package pdftex.def Info: ./Figures/q3_svm_mc_word-wise.png  used on input line 506.
 (pdftex.def)             Requested size: 150.32503pt x 100.21791pt.
  [13 <./Figures/q3_crf_word-wise.png> <./Figures/q3_svm_hmm_word-wise.png> <./Figures/q3_svm_mc_word-wise.png>]
-<./Figures/obj_compare.pdf, id=884, 296.2829pt x 277.10426pt>
+<./Figures/q4a_objective.png, id=884, 505.89pt x 361.35pt>
+File: ./Figures/q4a_objective.png Graphic file (type png)
+<use ./Figures/q4a_objective.png>
+Package pdftex.def Info: ./Figures/q4a_objective.png  used on input line 572.
+(pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
+<./Figures/q4a_word_error.png, id=885, 505.89pt x 361.35pt>
+File: ./Figures/q4a_word_error.png Graphic file (type png)
+<use ./Figures/q4a_word_error.png>
+Package pdftex.def Info: ./Figures/q4a_word_error.png  used on input line 578.
+(pdftex.def)             Requested size: 225.48038pt x 161.05663pt.
+<./Figures/obj_compare.pdf, id=886, 296.2829pt x 277.10426pt>
 File: ./Figures/obj_compare.pdf Graphic file (type pdf)
 <use ./Figures/obj_compare.pdf>
-Package pdftex.def Info: ./Figures/obj_compare.pdf  used on input line 571.
+Package pdftex.def Info: ./Figures/obj_compare.pdf  used on input line 587.
 (pdftex.def)             Requested size: 170.71652pt x 159.66351pt.
-<./Figures/error_compare.pdf, id=885, 296.28189pt x 273.58209pt>
+<./Figures/error_compare.pdf, id=887, 296.28189pt x 273.58209pt>
 File: ./Figures/error_compare.pdf Graphic file (type pdf)
 <use ./Figures/error_compare.pdf>
-Package pdftex.def Info: ./Figures/error_compare.pdf  used on input line 574.
+Package pdftex.def Info: ./Figures/error_compare.pdf  used on input line 590.
 (pdftex.def)             Requested size: 170.71652pt x 157.64244pt.
- [14 <./Figures/obj_compare.pdf> <./Figures/error_compare.pdf>]
-<./Figures/lab1_4b.pdf, id=904, 456.74641pt x 590.6567pt>
+ [14 <./Figures/q4a_objective.png> <./Figures/q4a_word_error.png>]
+<./Figures/lab1_4b.pdf, id=896, 456.74641pt x 590.6567pt>
 File: ./Figures/lab1_4b.pdf Graphic file (type pdf)
 <use ./Figures/lab1_4b.pdf>
-Package pdftex.def Info: ./Figures/lab1_4b.pdf  used on input line 618.
+Package pdftex.def Info: ./Figures/lab1_4b.pdf  used on input line 639.
 (pdftex.def)             Requested size: 456.7453pt x 590.65526pt.
-<./Figures/lab1_4b.pdf, id=906, page=1, 456.74641pt x 590.6567pt>
+<./Figures/lab1_4b.pdf, id=898, page=1, 456.74641pt x 590.6567pt>
 File: ./Figures/lab1_4b.pdf Graphic file (type pdf)
 <use ./Figures/lab1_4b.pdf, page 1>
-Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 618.
+Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 639.
 (pdftex.def)             Requested size: 456.7453pt x 590.65526pt.
 File: ./Figures/lab1_4b.pdf Graphic file (type pdf)
 <use ./Figures/lab1_4b.pdf, page 1>
-Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 618.
+Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 639.
 (pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
  [15]
 File: ./Figures/lab1_4b.pdf Graphic file (type pdf)
 <use ./Figures/lab1_4b.pdf, page 1>
-Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 618.
+Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 639.
 (pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
 File: ./Figures/lab1_4b.pdf Graphic file (type pdf)
 <use ./Figures/lab1_4b.pdf, page 1>
-Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 618.
+Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 639.
 (pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
 File: ./Figures/lab1_4b.pdf Graphic file (type pdf)
 <use ./Figures/lab1_4b.pdf, page 1>
-Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 618.
+Package pdftex.def Info: ./Figures/lab1_4b.pdf , page1 used on input line 639.
 (pdftex.def)             Requested size: 615.29869pt x 795.69382pt.
  [16
 
- <./Figures/lab1_4b.pdf>] [17] [18]
-<./Figures/q4c_plot.png, id=1111, 505.89pt x 361.35pt>
+ <./Figures/lab1_4b.pdf>] [17 <./Figures/obj_compare.pdf> <./Figures/error_compare.pdf>] [18]
+<./Figures/q4c_plot.png, id=1117, 505.89pt x 361.35pt>
 File: ./Figures/q4c_plot.png Graphic file (type png)
 <use ./Figures/q4c_plot.png>
-Package pdftex.def Info: ./Figures/q4c_plot.png  used on input line 762.
+Package pdftex.def Info: ./Figures/q4c_plot.png  used on input line 776.
 (pdftex.def)             Requested size: 281.85585pt x 201.32906pt.
  [19 <./Figures/q4c_plot.png>]
-<./Figures/q5_letter-wise.png, id=1122, 433.62pt x 289.08pt>
+<./Figures/q5_letter-wise.png, id=1128, 433.62pt x 289.08pt>
 File: ./Figures/q5_letter-wise.png Graphic file (type png)
 <use ./Figures/q5_letter-wise.png>
-Package pdftex.def Info: ./Figures/q5_letter-wise.png  used on input line 824.
+Package pdftex.def Info: ./Figures/q5_letter-wise.png  used on input line 838.
 (pdftex.def)             Requested size: 281.85585pt x 187.913pt.
-<./Figures/q5_word-wise.png, id=1123, 433.62pt x 289.08pt>
+<./Figures/q5_word-wise.png, id=1129, 433.62pt x 289.08pt>
 File: ./Figures/q5_word-wise.png Graphic file (type png)
 <use ./Figures/q5_word-wise.png>
-Package pdftex.def Info: ./Figures/q5_word-wise.png  used on input line 836.
+Package pdftex.def Info: ./Figures/q5_word-wise.png  used on input line 850.
 (pdftex.def)             Requested size: 281.85585pt x 187.913pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[20 <./Figures/q5_letter-wise.png>] [21 <./Figures/q5_word-wise.png>] [22] [23] [24] (./Lab_1.aux)
+ [20 <./Figures/q5_letter-wise.png>] [21 <./Figures/q5_word-wise.png>] [22] [23] [24] (./Lab_1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -716,18 +722,18 @@ Package rerunfilecheck Info: File `Lab_1.out' has not changed.
 (rerunfilecheck)             Checksum: 412B4BF1EB544BE2ABF689BE62E466DF;1753.
  ) 
 Here is how much of TeX's memory you used:
- 14564 strings out of 467533
- 219060 string characters out of 5419489
- 651542 words of memory out of 5000000
- 43136 multiletter control sequences out of 15000+600000
+ 14584 strings out of 467533
+ 219656 string characters out of 5419489
+ 653542 words of memory out of 5000000
+ 43154 multiletter control sequences out of 15000+600000
  644502 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,20n,93p,845b,738s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on Lab_1.pdf (24 pages, 2019526 bytes).
+Output written on Lab_1.pdf (24 pages, 2191948 bytes).
 PDF statistics:
- 1320 PDF objects out of 1440 (max. 8388607)
- 891 compressed objects within 9 object streams
- 100 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1326 PDF objects out of 1440 (max. 8388607)
+ 893 compressed objects within 9 object streams
+ 102 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

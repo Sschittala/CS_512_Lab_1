@@ -563,7 +563,23 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	Tune them well for all the methods respectively before plotting.
 	You can tune them based on how fast the training objective decays.
 	
-	\textcolor{b}{** ADD UPDATED PLOTS HERE ** The script \textbf{code/q4\_sdg.py} contains the code that runs SGD, momentum, and LBFGS optimizations and records the training objective value and word-wise error for the plots.}
+	\textcolor{b}{The script \textbf{code/q4\_sdg.py} contains the code that runs SGD, momentum, and LBFGS optimizations and records the training objective value and word-wise error for the plots.}
+
+	\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{q4a_objective.png}
+        \caption{\textcolor{b}{Training Objective score for SGD, Momentum, LBFGS over expected number of passes.}}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{q4a_word_error.png}
+        \caption{\textcolor{b}{Word-wise Accuracy for SGD, Momentum, LBFGS over effective number of passes.}}
+    \end{minipage}
+	\end{figure}
+
 
 	\begin{figure}[t]
 	\centering
@@ -613,14 +629,14 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	Compare it with the cost of dynamic programming.
 	Your complexity should be expressed in the number of letters in the word ($m$),
 	and the size of the alphabet (\ie, $\abr{\Ycal}=26$).
-
-	\textcolor{b}{The work and explanation for 4bi is shown on the following page.}
-	\includepdf[pages=-]{lab1_4b.pdf}
 	
 	Incidentally, you may have noticed that it is even more time consuming to draw a reasonable number of samples than to run the dynamic programming.
 	This is expected because we are working on a linear chain on which dynamic programming is feasible.
 	But sampling can be applied to a far broader range of graphs,
 	and our focus in this lab is to explore how many samples are needed to get a good gradient.
+
+	\textcolor{b}{The work and explanation for 4bi is shown on the following page.}
+	\includepdf[pages=-]{lab1_4b.pdf}
 	
 	\textbf{(ii)} 
 	Implement the sampling procedure and supply the resulting gradient to SGD, momentum, LBFGS.
@@ -672,9 +688,7 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	The `correct' algorithm is not unique, and it works when the divergence against the dynamic programming result decays to 0 as more and more samples are drawn.
 	See the next sub-question (ii).
 
-	\textcolor{b}{The pseudocode is labeled as \textbf{Algorithm 1} on the next page and has been converted into latex readable pseudocode using the help of ChatGPT.}
-
-	\newpage
+	\textcolor{b}{The pseudocode is labeled as \textbf{Algorithm 1} has been converted into latex readable pseudocode using the help of ChatGPT.}
 
 	\begin{algorithm}
 	\caption{Rao-Blackwellized Gibbs Sampling for CRF Marginals}
@@ -843,7 +857,6 @@ All line numbers appear exactly once.
 	
 \end{itemize}
 
-\newpage
 \section{Appendix: Dynamic programming details}
 
 \subsection{Computing the partition function}
