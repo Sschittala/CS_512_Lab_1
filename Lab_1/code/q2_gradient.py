@@ -175,7 +175,7 @@ def load_test(filename):
     return words_x
 
 # #2a
-
+'''
 W, T = load_model("data/model.txt")
 words_x, words_y = load_train("data/train.txt")
 avg_log, avg_grad_w, avg_grad_t = compute_full_gradient(words_x, words_y, W, T) 
@@ -208,7 +208,7 @@ for x_word in test_words_x:
     final_preds.extend(pred)
     # final_preds.extend(pred + 1)
 np.savetxt("result/predictions.txt", final_preds, fmt='%d')
-
+'''
 
 
  

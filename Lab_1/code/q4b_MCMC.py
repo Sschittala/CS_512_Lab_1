@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fmin_tnc
-from q2_gradient import load_train
+from q2_gradient import load_train, forward_backward
 from q4_sgd import word_error, full_objective
 
 # -----------------------------
@@ -66,6 +66,8 @@ def compute_gradient_sampling(X, y_true, W, T, S=10):
     grad_w = np.zeros_like(W)
     grad_t = np.zeros_like(T)
 
+    log_prob, _, _ = forward_backward(X, W, T, y_true)
+
     # Empirical counts from true label
     for s in range(m):
         grad_w[y_true[s]] += X[s]
@@ -83,7 +85,7 @@ def compute_gradient_sampling(X, y_true, W, T, S=10):
             grad_t[y[s], y[s+1]] -= 1.0 / S
 
     # Optional: approximate log probability of true y
-    log_prob = 0  # we won’t compute it exactly for efficiency
+    #log_prob = 0  # we won’t compute it exactly for efficiency
 
     return grad_w, grad_t, log_prob
 
@@ -274,8 +276,8 @@ def plot_histories(sgd_hist, mom_hist, lbfgs_hist):
 # -----------------------------
 # 9) Run everything
 # -----------------------------
-train_x, train_y = load_train("data/train.txt")
-test_x, test_y = load_train("data/test.txt")
+train_x, train_y = load_train("../data/train.txt")
+test_x, test_y = load_train("../data/test.txt")
 
 C = 1000
 S = 10
