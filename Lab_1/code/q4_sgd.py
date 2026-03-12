@@ -275,8 +275,8 @@ def plot_histories(sgd_hist, mom_hist, lbfgs_hist):
 train_x, train_y = load_train("../data/train.txt")
 test_x, test_y = load_train("../data/test.txt")
 
-C = 10000 # Choose optimal C
-n = 200
+C = 1000
+n = 2000
 
 sgd_hist = run_sgd(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, steps=n)
 mom_hist = run_sgd_momentum(train_x, train_y, test_x, test_y, 5, C=C, B=32, lr=1e-4, momentum=0.9, steps=n)
