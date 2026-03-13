@@ -1,8 +1,8 @@
-PWD /Users/tylerstrach/Desktop/10 - Spring 2026/lab1/CS_512_Lab_1/Lab_1/latex
+PWD /Users/tylerstrach/Desktop/10 - Spring 2026/lab1/Tyler_Strach/Lab_1/latex
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/tylerstrach/Desktop/10 - Spring 2026/lab1/CS_512_Lab_1/Lab_1/latex/Lab_1.tex
+INPUT /Users/tylerstrach/Desktop/10 - Spring 2026/lab1/Tyler_Strach/Lab_1/latex/Lab_1.tex
 OUTPUT Lab_1.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/report.cls
@@ -347,6 +347,14 @@ INPUT ./Figures/lab1_4b.pdf
 INPUT ./Figures/lab1_4b.pdf
 INPUT ./Figures/lab1_4b.pdf
 INPUT ./Figures/lab1_4b.pdf
+INPUT ./Figures/q4b_training-obj.png
+INPUT ./Figures/q4b_training-obj.png
+INPUT ./Figures/q4b_training-obj.png
+INPUT ./Figures/q4b_training-obj.png
+INPUT ./Figures/q4b_word-error.png
+INPUT ./Figures/q4b_word-error.png
+INPUT ./Figures/q4b_word-error.png
+INPUT ./Figures/q4b_word-error.png
 INPUT ./Figures/q4c_plot.png
 INPUT ./Figures/q4c_plot.png
 INPUT ./Figures/q4c_plot.png

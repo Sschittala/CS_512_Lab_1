@@ -653,7 +653,23 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	
 	\textbf{How to debug your sampler?} The easiest way is to take an arbitrary word, and compute the node and edge marginal distributions based on samples.  Then compare them with the result of dynamic programming.  The difference should decay to 0 as $S$ grows.
 
-	\textcolor{b}{NEED TO ADD REVISED PLOTS FOR 4bii AND OBSERVATIONS HERE}
+	\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{q4b_training-obj.png}
+        \caption{\textcolor{b}{Training Objective score for SGD, Momentum, LBFGS over expected number of passes.}}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{q4b_word-error.png}
+        \caption{\textcolor{b}{Word-wise Accuracy for SGD, Momentum, LBFGS over effective number of passes.}}
+    \end{minipage}
+	\end{figure}
+
+
+	\textcolor{b}{In comparison to the convergence in 4a, applying MCMC sampling seems to limit the rate at which LBFGS converges. For both SGD and SGD Momentum, it looks like the MCMC sampling had little to no impact in improving the rate of convergence for both training objective and word-wise error.}
 	
 	\item[(4c)] {\bf [8 Marks]} 
 	Rao-Blackwellization. 
@@ -688,7 +704,7 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 	The `correct' algorithm is not unique, and it works when the divergence against the dynamic programming result decays to 0 as more and more samples are drawn.
 	See the next sub-question (ii).
 
-	\textcolor{b}{The pseudocode is labeled as \textbf{Algorithm 1} has been converted into latex readable pseudocode using the help of ChatGPT.}
+	\textcolor{b}{The pseudocode is labeled as \textbf{Algorithm 1} on the next has been converted into latex readable pseudocode using the help of ChatGPT.}
 
 	\begin{algorithm}
 	\caption{Rao-Blackwellized Gibbs Sampling for CRF Marginals}
@@ -769,7 +785,7 @@ For this section, you should fix the value of $C$ in the CRF to the best value f
 
 	\textcolor{b}{The script to run MCMC with Rao-Blackwellization and without, and produce the corresponding KL divergence values across samples are in \textbf{code/q4c\_rao\_blackwell.py}.}
 	
-	\textcolor{b}{The KL divergence for the Node and Edge with RB has a faster convergence than the Node and Edge values without. Therefore, RB is effective at reduciing variance. Another small piece to note is that Node marginals are easier to estimate than Edge marginals, but RB improves them both.}
+	\textcolor{b}{The KL divergence for the Node and Edge with RB has a faster convergence than the Node and Edge values without. Therefore, RB is effective at reducing variance. Another small piece to note is that Node marginals are easier to estimate than Edge marginals, but RB improves them both.}
 
 	\begin{figure}[h]
 	\centering
