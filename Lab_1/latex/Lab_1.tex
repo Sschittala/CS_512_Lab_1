@@ -281,7 +281,7 @@ Given these parameters (\eg\ by learning from data), the model \eqref{eq:crf} ca
 	If you are using your own dynamic programming algorithm (\ie\ not max-sum),
 	give a brief description especially the formula of recursion.
 
-	\textcolor{b}{See \textbf{code/q1\_decode.py} for implementation and \textbf{result/decode\_output.txt} for results. Need to include "maximum objective value" here, and add comments in the q1\_decode.py file.}
+	\textcolor{b}{See code/q1 decode.py for implementation and result/decode output.txt for results. The maximum objective value obtained was 200.18}
 \end{itemize}
 
 %\newpage
@@ -359,7 +359,7 @@ Here $C > 0$ is a trade-off weight that balances log-likelihood and regularizati
 	it takes 5 seconds to compute the gradient on the whole training set.
 	Single core of Intel(R) i7-10510U CPU @ 1.80GHz.
 
-	\textcolor{b}{See \textbf{code/q2\_gradient.py} for implementation and \textbf{result/gradient.txt} for results. Need to add comments to this file and, average log p(y|X) over training set value}
+	\textcolor{b}{See code/q2 gradient.py for implementation and result/gradient.txt for results. Average log p(y—X) over training set is -31.288437439649137}
 		
 	
 	\item[(2b)] {\bf [12 Marks]} We can now learn ($\{\wvec_c\}, T$) by solving the optimization problem in \eqref{eq:obj_MLE} based on the training examples in \verb#data/train.txt#.
@@ -389,7 +389,8 @@ Here $C > 0$ is a trade-off weight that balances log-likelihood and regularizati
 	In your report, provide the optimal objective value of \eqref{eq:obj_MLE} found by your solver.
 \end{itemize}
 
-\textcolor{b}{See \textbf{code/q2\_gradient.py} for implementation and \textbf{result/solution.txt, result/prediction} for results. Need to add comments to this file and, include "optimal objective value found by solver".}
+\textcolor{b}{See code/q2 gradient.py for implementation and result/solution.txt, result/prediction for
+results. Optimal objective value reported was 3704.963478698609.}
 
 
 \section{Benchmarking with Other Learning Models}

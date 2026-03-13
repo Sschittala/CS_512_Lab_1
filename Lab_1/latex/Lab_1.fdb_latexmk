@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1773368392.10465 "/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/Tyler_Strach/Lab_1/latex/Lab_1.tex" "Lab_1.pdf" "Lab_1" 1773368393.26809 0
-  "/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/Tyler_Strach/Lab_1/latex/Lab_1.tex" 1773368391.71759 53738 9a55a0b4b8b0edc8cb069bad6608ad7c ""
+["pdflatex"] 1773371990.93531 "/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/Tyler_Strach/Lab_1/latex/Lab_1.tex" "Lab_1.pdf" "Lab_1" 1773371992.12508 0
+  "/Users/tylerstrach/Desktop/10 - Spring 2026/lab1/Tyler_Strach/Lab_1/latex/Lab_1.tex" 1773371990.73936 53582 38309fb2499b714dac5552b99c7e0041 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -188,9 +188,9 @@
   "Figures/q4c_plot.png" 1773249993.76139 48671 08cdf9cf3f79836cf7b57fc46a03ef85 ""
   "Figures/q5_letter-wise.png" 1773266989.03511 36338 99e35d4900d42b46945d317460713b2c ""
   "Figures/q5_word-wise.png" 1773267002.69049 38781 fbdb0549042c1609818da98617ddb12d ""
-  "Lab_1.aux" 1773368393.19862 6100 111e7194693903495280dfaf842bd413 "pdflatex"
-  "Lab_1.out" 1773368393.19926 1753 412b4bf1eb544be2abf689be62e466df "pdflatex"
-  "Lab_1.tex" 1773368391.71759 53738 9a55a0b4b8b0edc8cb069bad6608ad7c ""
+  "Lab_1.aux" 1773371992.05242 6100 111e7194693903495280dfaf842bd413 "pdflatex"
+  "Lab_1.out" 1773371992.053 1753 412b4bf1eb544be2abf689be62e466df "pdflatex"
+  "Lab_1.tex" 1773371990.73936 53582 38309fb2499b714dac5552b99c7e0041 ""
   "assignment_programming.sty" 1770842548 8510 8ea9dd6d086cb189e59e1bbe5ca1988a ""
   (generated)
   "Lab_1.aux"
